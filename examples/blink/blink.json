@@ -1,0 +1,22 @@
+{
+    "types": {
+    },
+    "inputs": [
+        {
+            "tgtname": "led_on",
+            "tgttype": "bool",
+            "uclname": "led_on",
+            "ucltype": "boolean"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "led_state",
+            "tgttype": "int",
+            "uclname": "led_state",
+            "ucltype": "bv32"
+        }
+    ],
+    "uclcalls": [
+    ]
+}

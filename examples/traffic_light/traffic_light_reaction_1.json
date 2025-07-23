@@ -1,0 +1,40 @@
+{
+    "types": {
+        "traffic_light_self_t": {
+            "type": "struct",
+            "fields": {
+                "_mode": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                },
+                "count": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "init_self",
+            "tgttype": "traffic_light_self_t *",
+            "uclname": "t.self",
+            "ucltype": "traffic_light_self_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "self",
+            "tgttype": "traffic_light_self_t *",
+            "uclname": "tp.self",
+            "ucltype": "traffic_light_self_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["t0.self"],
+            "outputs":["t1.self"],
+            "flag": "traffic_light_reaction_1_fired"
+        }
+    ]
+}

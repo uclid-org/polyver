@@ -1,0 +1,34 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                }
+            }
+        }
+    },
+    "inputs": [
+    ],
+    "outputs": [
+        {
+            "tgtname": "out",
+            "tgttype": "port_t *",
+            "uclname": "pp.out",
+            "ucltype": "port_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":[],
+            "outputs":["p1.out"],
+            "flag": "pedestrian_reaction_1_fired"
+        }
+    ]
+}

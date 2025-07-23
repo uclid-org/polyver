@@ -1,0 +1,92 @@
+{
+    "types": {
+        "traffic_light_self_t": {
+            "type": "struct",
+            "fields": {
+                "_mode": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                },
+                "count": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                }
+            }
+        },
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                }
+            }
+        },
+        "trigger_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "int",
+                    "ucltype": "bv64"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "init_self",
+            "tgttype": "traffic_light_self_t *",
+            "uclname": "t.self",
+            "ucltype": "traffic_light_self_t"
+        },
+        {
+            "tgtname": "pedestrian",
+            "tgttype": "port_t *",
+            "uclname": "p.out",
+            "ucltype": "port_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "self",
+            "tgttype": "traffic_light_self_t *",
+            "uclname": "tp.self",
+            "ucltype": "traffic_light_self_t"
+        },
+        {
+            "tgtname": "sigG",
+            "tgttype": "port_t *",
+            "uclname": "tp.sigG",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "sigY",
+            "tgttype": "port_t *",
+            "uclname": "tp.sigY",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "sigR",
+            "tgttype": "port_t *",
+            "uclname": "tp.sigR",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "resetCount",
+            "tgttype": "trigger_t *",
+            "uclname": "tp.resetCount",
+            "ucltype": "trigger_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["t1.self", "p0.out"],
+            "outputs":["t2.self", "t2.sigG", "t2.sigY", "t2.sigR", "t2.resetCount"],
+            "flag": "traffic_light_reaction_2_fired"
+        }
+    ]
+}

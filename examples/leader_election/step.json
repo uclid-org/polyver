@@ -1,0 +1,65 @@
+{
+    "types": {
+        "node_t": {
+            "type": "struct",
+            "fields": {
+                "id": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "m": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "win": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "src",
+            "tgttype": "node_t",
+            "uclname": "src",
+            "ucltype": "node_t"
+        },
+        {
+            "tgtname": "dst",
+            "tgttype": "node_t",
+            "uclname": "dst",
+            "ucltype": "node_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "ret",
+            "tgttype": "node_t",
+            "uclname": "r",
+            "ucltype": "node_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs": ["n0p", "n1p"],
+            "outputs": ["n1"],
+            "flag": "step_fired_0"
+        },
+        {
+            "inputs": ["n1p", "n2p"],
+            "outputs": ["n2"],
+            "flag": "step_fired_1"
+        },
+        {
+            "inputs": ["n2p", "n3p"],
+            "outputs": ["n3"],
+            "flag": "step_fired_2"
+        },
+        {
+            "inputs": ["n3p", "n0p"],
+            "outputs": ["n0"],
+            "flag": "step_fired_3"
+        }
+    ]
+}

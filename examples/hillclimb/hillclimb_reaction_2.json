@@ -1,0 +1,65 @@
+{
+    "types": {
+        "bool_port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                }
+            }
+        },
+        "hillclimb_self_t": {
+            "type": "struct",
+            "fields": {
+                "last_angle": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "uphill": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "init_self",
+            "tgttype": "hillclimb_self_t *",
+            "uclname": "h_self",
+            "ucltype": "hillclimb_self_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "a_trigger",
+            "tgttype": "bool_port_t *",
+            "uclname": "a_trigger",
+            "ucltype": "bool_port_t"
+        },
+        {
+            "tgtname": "g_trigger",
+            "tgttype": "bool_port_t *",
+            "uclname": "g_trigger",
+            "ucltype": "bool_port_t"
+        },
+        {
+            "tgtname": "self",
+            "tgttype": "hillclimb_self_t *",
+            "uclname": "h_self_p",
+            "ucltype": "hillclimb_self_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["h1.self"],
+            "outputs":["a1.trigger", "g1.trigger", "h2.self"],
+            "flag": "hillclimb_reaction_2_fired"
+        }
+    ]
+}

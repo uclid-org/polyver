@@ -1,0 +1,39 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "right_power",
+            "tgttype": "port_t *",
+            "uclname": "mo_right_power",
+            "ucltype": "port_t"
+        }
+    ],
+    "outputs": [
+    ],
+    "uclcalls": [
+        {
+            "inputs":["m0.right_power"],
+            "outputs":[],
+            "flag": "motors_reaction_2_fired_1"
+        },
+        {
+            "inputs":["m2.right_power"],
+            "outputs":[],
+            "flag": "motors_reaction_2_fired_2"
+        }
+    ]
+}

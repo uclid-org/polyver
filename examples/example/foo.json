@@ -1,0 +1,26 @@
+{
+    "types": {},
+    "inputs": [
+        {
+            "tgtname": "i",
+            "tgttype": "int",
+            "uclname": "i",
+            "ucltype": "bv32"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "r",
+            "tgttype": "int",
+            "uclname": "r",
+            "ucltype": "bv32"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs": ["init_y"],
+            "outputs": ["y"],
+            "flag": "foo_fired"
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        },
+        "hillclimb_self_t": {
+            "type": "struct",
+            "fields": {
+                "last_angle": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "uphill": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "tilt_roll",
+            "tgttype": "port_t *",
+            "uclname": "tilt_roll",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "init_self",
+            "tgttype": "hillclimb_self_t *",
+            "uclname": "h_self",
+            "ucltype": "hillclimb_self_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "m_left_power",
+            "tgttype": "port_t *",
+            "uclname": "mo_left_power",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "m_right_power",
+            "tgttype": "port_t *",
+            "uclname": "mo_right_power",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "self",
+            "tgttype": "hillclimb_self_t *",
+            "uclname": "h_self_p",
+            "ucltype": "hillclimb_self_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["tilt1.roll", "h2.self"],
+            "outputs":["m1.left_power", "m1.right_power", "h3.self"],
+            "flag": "hillclimb_climbing_reaction_2_fired"
+        }
+    ]
+}

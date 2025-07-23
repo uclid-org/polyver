@@ -1,0 +1,58 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "x",
+            "tgttype": "port_t *",
+            "uclname": "tilt_x",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "y",
+            "tgttype": "port_t *",
+            "uclname": "tilt_y",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "z",
+            "tgttype": "port_t *",
+            "uclname": "tilt_z",
+            "ucltype": "port_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "roll",
+            "tgttype": "port_t *",
+            "uclname": "tilt_roll",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "pitch",
+            "tgttype": "port_t *",
+            "uclname": "tilt_pitch",
+            "ucltype": "port_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["tilt0.x", "tilt0.y", "tilt0.z"],
+            "outputs":["tilt1.roll", "tilt1.pitch"],
+            "flag": "tilt_reaction_1_fired"
+        }
+    ]
+}

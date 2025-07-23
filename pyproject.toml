@@ -1,0 +1,32 @@
+[project]
+name = "polyver"
+version = "0.1.0"
+description = "A tool for polyglot system verification"
+authors = [
+  { name = "Pei-Wei Chen", email = "pwchen@berkeley.edu" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+  "astor>=0.8.1",
+  "openai>=1.97.0",
+  "smartinput>=1.0.8",
+  "lark>=1.2.2",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+]
+
+[project.urls]
+Homepage = "https://github.com/uclid-org/polyver"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["polyver*"]

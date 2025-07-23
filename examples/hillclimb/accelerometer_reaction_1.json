@@ -1,0 +1,65 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        },
+        "bool_port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "trigger",
+            "tgttype": "bool_port_t *",
+            "uclname": "a_trigger",
+            "ucltype": "bool_port_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "x",
+            "tgttype": "port_t *",
+            "uclname": "a_x",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "y",
+            "tgttype": "port_t *",
+            "uclname": "a_y",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "z",
+            "tgttype": "port_t *",
+            "uclname": "a_z",
+            "ucltype": "port_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["a1.trigger"],
+            "outputs":["a2.x", "a2.y", "a2.z"],
+            "flag": "accelerometer_reaction_1_fired"
+        }
+    ]
+}

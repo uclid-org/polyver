@@ -1,0 +1,69 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        },
+        "trapezoidalintegrator_self_t": {
+            "type": "struct",
+            "fields": {
+                "s": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "prev_in": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                },
+                "prev_time": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "inp",
+            "tgttype": "port_t *",
+            "uclname": "trap_inp",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "init_self",
+            "tgttype": "trapezoidalintegrator_self_t *",
+            "uclname": "trap_self",
+            "ucltype": "trapezoidalintegrator_self_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "out",
+            "tgttype": "port_t *",
+            "uclname": "trap_out",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "self",
+            "tgttype": "trapezoidalintegrator_self_t *",
+            "uclname": "trap_self_p",
+            "ucltype": "trapezoidalintegrator_self_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["trap0.inp", "trap0.self"],
+            "outputs":["trap1.out", "trap1.self"],
+            "flag": "trapezoidalintegrator_reaction_1_fired"
+        }
+    ]
+}

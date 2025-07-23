@@ -1,0 +1,65 @@
+{
+    "types": {
+        "port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "int",
+                    "ucltype": "bv32"
+                }
+            }
+        },
+        "bool_port_t": {
+            "type": "struct",
+            "fields": {
+                "is_present": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                },
+                "value": {
+                    "tgttype": "bool",
+                    "ucltype": "boolean"
+                }
+            }
+        }
+    },
+    "inputs": [
+        {
+            "tgtname": "trigger",
+            "tgttype": "bool_port_t *",
+            "uclname": "g_trigger",
+            "ucltype": "bool_port_t"
+        }
+    ],
+    "outputs": [
+        {
+            "tgtname": "x",
+            "tgttype": "port_t *",
+            "uclname": "g_x",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "y",
+            "tgttype": "port_t *",
+            "uclname": "g_y",
+            "ucltype": "port_t"
+        },
+        {
+            "tgtname": "z",
+            "tgttype": "port_t *",
+            "uclname": "g_z",
+            "ucltype": "port_t"
+        }
+    ],
+    "uclcalls": [
+        {
+            "inputs":["g1.trigger"],
+            "outputs":["g2.x", "g2.y", "g2.z"],
+            "flag": "gyro_reaction_1_fired"
+        }
+    ]
+}
