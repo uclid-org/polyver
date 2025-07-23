@@ -67,7 +67,7 @@ class ExampleModule(Module):
 ```
 
 Next, we define the `buildUclidModule` method to construct the UCLID5 module.
-The C function `foo` is specified as a __noinline__ UCLID5 procedure, meaning only the contract will be used for verification. The procecdure's contract is verified separately using cbmc.
+The C function `foo` is specified as a _noinline_ UCLID5 procedure, meaning only the contract will be used for verification. The procecdure's contract is verified separately using cbmc.
 `getLatestUclid...String` methods are used to retrieve the latest UCLID5 strings for the procedure's pre/post-conditions, which are then used to build the UCLID5 module.
 
 ```python
@@ -115,4 +115,7 @@ mc.report("./result.json")
 This writes a report to `result.json` containing the verification results of the module, including contracts if verified successfully otherwise a counterexample trace.
 This report can be passed via `--init_solution` argument to verify correctness.
 
-For more details regarding model checker configuration, try `python3 examples/example/example.py --help`.
+### Synthesis
+To use OpenAI's LLM as synthesizers, [you must have an OpenAI API Key in your ‘OPENAI_API_KEY’ environment variable](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety).
+
+For more details regarding model checker configuration and supported LLM models, try `python3 examples/example/example.py --help`.
