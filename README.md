@@ -5,9 +5,9 @@ It supports both automated verification and synthesis of contracts for procedure
 This is the artifact for the paper ^ in FMCAD 2025.
 
 ## Features
-- Modeling: supports modeling of polyglot systems using the modeling and verification tool UCLID5.
-- Verification: supports C and Rust procedures with cbmc and Kani as language-verifiers.
-- Synthesis: supports LLM-based, user-input, and SyGuS/SyMO synthesizers for pre/post-condition contract synthesis.
+- __Modeling__: supports modeling of polyglot systems using the modeling and verification tool UCLID5.
+- __Verification__: supports C and Rust procedures with cbmc and Kani as language-verifiers.
+- __Synthesis__: supports LLM-based, user-input, and SyGuS/SyMO synthesizers for pre/post-condition contract synthesis.
 
 ## Installation
 Clone the repo and install locally:
@@ -62,7 +62,7 @@ class ExampleModule(Module):
             filepath=Path(__file__).parent / "foo.c",
             jsonpath=Path(__file__).parent / "foo.json",
         )
-		# Required to store procedures in a dictionary named `self.procs`
+        # Required to store procedures in a dictionary named `self.procs`
         self.procs = {foo.name: foo}
 ```
 
@@ -72,6 +72,7 @@ The C function `foo` is specified as a __noinline__ UCLID5 procedure, meaning on
 
 ```python
     def buildUclidModule(self) -> UclidModule:
+        m = UclidModule("main")
         # ...
         requires = UclidRaw(self.procs["foo"].getLatestUclidRequiresString())
         ensures = UclidRaw(self.procs["foo"].getLatestUclidEnsuresString())
@@ -90,7 +91,7 @@ The C function `foo` is specified as a __noinline__ UCLID5 procedure, meaning on
         )
         # ...
         # Return a Uclid module here
-        pass
+        return m
 ```
 
 
